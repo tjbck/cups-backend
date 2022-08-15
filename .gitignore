@@ -1,0 +1,11 @@
+**/__pycache__
+
+# exclude everything
+uploads/*
+
+# exception to the rule
+!uploads/.gitkeep 
+
+erudio/
+
+_old/
