@@ -4,6 +4,7 @@ pydantic
 python-multipart
 
 python-socketio
+redis
 
 PyJWT
 pyjwt[crypto]

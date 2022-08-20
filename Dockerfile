@@ -10,5 +10,7 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 ENV ENV=prod
+ENV REDIS_PASSWORD=root
+
 
 CMD [ "sh", "start.sh"]
