@@ -66,6 +66,16 @@ async def set_username(sid, data):
     print(name)
 
 
+@ sio.on('ask-question')
+async def ask_question(sid, data):
+    print('ask_question', sid, data)
+    room = r.hget(sid, 'room').decode("utf-8")
+    username = r.hget(sid, 'name').decode("utf-8")
+    r.rpush(f"questions:{room}", f"{data['content']}#{username}")
+
+    await sio.emit('user-event', {"sid": sid, "event": "question"}, room=room)
+
+
 @ sio.on('join-room-admin')
 async def join_room_admin(sid, data):
     print('join_room_admin', sid, data)
